@@ -1,0 +1,23 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+    
+	<p:dialog modal="true" widgetVar="modalAlimentos" id="modalAlimentos" >
+		<p:dataTable value="#{refeicao.alimentos}" var="alimento" >
+			<p:column headerText="" >
+				icone
+			</p:column>
+			
+			<p:column headerText="Descrição" >
+				<h:outputLabel value="#{alimento.descricao}" />
+			</p:column>
+			
+			<p:column headerText="Calorias" >
+				<h:outputLabel value="#{alimento.calValue}" />
+			</p:column>
+		</p:dataTable>
+	</p:dialog>
+	
+</ui:composition> 
