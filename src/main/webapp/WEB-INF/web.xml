@@ -4,20 +4,40 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
     version="3.0">
     
-  <display-name>exJsfPrimefaces</display-name>
-  <!-- Configuração do arquivo inicial quando a aplicação for inicializada -->
-  <welcome-file-list>
-	<welcome-file>/index.xhtml</welcome-file>      
-  </welcome-file-list>
+	<display-name>exJsfPrimefaces</display-name>
+	<!-- Configuração do arquivo inicial quando a aplicação for inicializada -->
+	<welcome-file-list>
+		<welcome-file>/index.xhtml</welcome-file>      
+	</welcome-file-list>
   
-  <!-- Configuração do Controlador Faces Servlet -->
-  <servlet>
-    <servlet-name>Faces Servlet</servlet-name>
-    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>*.xhtml</url-pattern>
-  </servlet-mapping>
+	<!-- Configuração do Controlador Faces Servlet -->
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.xhtml</url-pattern>
+	</servlet-mapping>
+	
+	<context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>
+    
+  	<!-- MOBILE PRIMEFACES -->
+    <context-param>
+        <param-name>com.sun.faces.allowTextChildren</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>Resource Servlet</servlet-name>
+        <servlet-class>org.primefaces.resource.ResourceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Resource Servlet</servlet-name>
+        <url-pattern>/primefaces_resource/*</url-pattern>
+    </servlet-mapping>
+  
 </web-app>

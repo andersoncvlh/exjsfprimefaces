@@ -2,25 +2,47 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:p="http://primefaces.org/ui">
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pm="http://primefaces.org/mobile">
 <h:head></h:head>
 <h:body>
-    <H2>
-        <h:outputText value="Olá JSF!" />
-    </H2>
-
-    <h:panelGroup id="panelModal" >
-    	<ui:include src="/WEB-INF/pages/modal/modalAlimentos.xhtml">
-    		<ui:param name="refeicao" value="#{dietaBean.refeicao}" />
-    	</ui:include>
-    </h:panelGroup>
-    
-    <h:form>
-	    <p:commandButton id="btnModal" value="Modal" 
-	    	onclick="PF('modalAlimentos').show();"
-			actionListener="#{dietaBean.prepararModal}"
-			update="tabela"  />
+	<h:form>
+	<p:panel header="Teste" toggleable="true" >
+		<p:menu toggleable="true"  styleClass="ui-listview-inset ui-corner-all ui-group-theme-b">
+			<p:submenu label="Sports" expanded="false"  >
+		        <p:menuitem value="ESPN" url="http://www.espn.com" icon="ui-icon-gear"/>
+		        <p:menuitem value="NBA" url="http://www.nba.com" icon="ui-icon-delete"/>
+		    </p:submenu>
+		    <p:submenu  label="Search">
+		        <p:menuitem value="Google" url="http://www.google.com" icon="ui-icon-info"/>
+		        <p:menuitem value="Bing" url="http://www.bing.com" icon="ui-icon-action"/>
+		    </p:submenu>
+		</p:menu>
+		<p:panelMenu styleClass="ui-listview-inset ui-corner-all ui-group-theme-b" > 
+			<p:submenu label="Sports" expanded="false"  >
+		        <p:menuitem value="ESPN" url="http://www.espn.com" icon="ui-icon-gear"/>
+		        <p:menuitem value="NBA" url="http://www.nba.com" icon="ui-icon-delete"/>
+		    </p:submenu>
+		    <p:submenu  label="Search">
+		        <p:menuitem value="Google" url="http://www.google.com" icon="ui-icon-info"/>
+		        <p:menuitem value="Bing" url="http://www.bing.com" icon="ui-icon-action"/>
+		    </p:submenu>
+		</p:panelMenu>
+	    <H2>
+	        <h:outputText value="Olá JSF!" />
+	    </H2>
+	
+	    <h:panelGroup id="panelModal" >
+	    	<ui:include src="/WEB-INF/pages/modal/modalAlimentos.xhtml">
+	    		<ui:param name="refeicao" value="#{dietaBean.refeicao}" />
+	    	</ui:include>
+	    </h:panelGroup>
+	    
+		    <p:commandButton id="btnModal" value="Modal" 
+		    	onclick="PF('modalAlimentos').show();"
+				actionListener="#{dietaBean.prepararModal}"
+				update="tabela"  />
+	</p:panel>
     </h:form>
-    
 </h:body>
 </html>

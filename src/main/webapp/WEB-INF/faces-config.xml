@@ -5,4 +5,11 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
     version="2.2">
 
+	<application>
+	    <default-render-kit-id>PRIMEFACES_MOBILE</default-render-kit-id>
+	    <navigation-handler>
+	        org.primefaces.mobile.application.MobileNavigationHandler
+	    </navigation-handler>
+	</application>
+
 </faces-config>
