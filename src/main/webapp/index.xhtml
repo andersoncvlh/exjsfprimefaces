@@ -1,12 +1,18 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:p="http://primefaces.org/ui">
-<h:head></h:head>
-<h:body>
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:h="http://java.sun.com/jsf/html"
+				xmlns:a4j="http://richfaces.org/a4j"
+				xmlns:rich="http://richfaces.org/rich"
+				xmlns:f="http://java.sun.com/jsf/core"
+				xmlns:c="http://java.sun.com/jstl/core"
+				xmlns:sec="http://www.springframework.org/security/facelets/tags"
+				xmlns:p="http://primefaces.org/ui"
+				template="/WEB-INF/template/template.xhtml"> 
+    <ui:define name="conteudo">
     <H2>
-        <h:outputText value="OlÃ¡ JSF!" />
+        <h:outputText value="Olá JSF!" />
     </H2>
 
     <h:panelGroup id="panelModal" >
@@ -22,5 +28,48 @@
 			update="tabela"  />
     </h:form>
     
-</h:body>
-</html>
+    
+    
+    <div class="container-fluid">
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{titulo}}</h3>
+            </div>
+            <div class="panel-body">
+                <form name="formGrupoMuscular">
+                    <div class="row">
+                        <div class="form-group col-sm-6 col-xs-12">                                    
+                            <label for="grupoMuscular">Grupo Muscular</label>
+                            <input class="form-control" id="grupoMuscular" type="text" ng-model="grupo.nome" />
+                        </div>
+                        <div class="form-group col-sm-6 col-xs-12">
+                            <label for="membro">Membro</label>                            
+                            <select class="form-control" id="membro" ng-model="grupo.membro">
+                                <option value="">Selecione um Membro</option>
+                                <option ng-repeat="membro in membros" value="{{membro}}">{{membro}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="container-fluid">
+                            <div class="form-group btn-group">
+                                <button class="btn btn-primary" ng-click="adicionarGrupo(grupo);" ng-disabled="!grupo.nome || !grupo.membro">Adicionar Grupo</button>
+                            </div>
+                            <div class="form-group btn-group">
+                                <button class="btn btn-default">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>                
+    </div>
+</div>
+    
+    
+    
+    
+    
+    </ui:define>
+</ui:composition>
